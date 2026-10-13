@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aarya ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:20px;text-align:center;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd1e3,#fff0f5,#ffc2d8);
+  color:#a51e55;overflow:hidden
+}
+.card{
+  width:100%;max-width:420px;background:#ffffffeb;
+  padding:32px 22px;border-radius:28px;
+  box-shadow:0 12px 40px #d6337240
+}
+.heart{font-size:65px;animation:beat 1s infinite}
+h1{color:#e62973;font-size:32px}
+p{font-size:17px;line-height:1.7}
+button{
+  border:0;border-radius:40px;padding:15px 42px;
+  font-size:20px;font-weight:bold;color:white;
+  background:linear-gradient(90deg,#ff4d88,#d91d65);
+  box-shadow:0 6px 18px #d6337250;cursor:pointer
+}
+button:active{transform:scale(.96)}
+#success{display:none}
+@keyframes beat{50%{transform:scale(1.15)}}
+.floating{position:fixed;bottom:-40px;animation:rise 6s linear infinite;pointer-events:none}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <section id="question">
+    <div class="heart">💖</div>
+    <p><b>Dear Aarya ❤️</b></p>
+    <h1>Will You Be My Girlfriend?</h1>
+    <p>I have something special to ask you… 🥹</p>
+    <p>You make my world brighter, and I would love to make beautiful memories with you. 🌷</p>
+    <p><b>Aarya, will you be mine? 💕</b></p>
+    <button onclick="sayYes()">YES 💖</button>
+    <p style="font-size:13px">A little question, straight from my heart ❤️</p>
+  </section>
+  <section id="success">
+    <div class="heart">🥰💐</div>
+    <h1>Yay, Aarya! 💖</h1>
+    <p>You just made my day extra special! ❤️</p>
+    <p>Here's to happy moments, silly laughs and beautiful memories together. 💕</p>
+    <h2>You're special to me! 🌹</h2>
+  </section>
+</div>
+<script>
+function sayYes(){
+  document.getElementById('question').style.display='none';
+  document.getElementById('success').style.display='block';
+  for(let i=0;i<25;i++){
+    let h=document.createElement('span');
+    h.className='floating';
+    h.textContent=['💖','💕','💗','🌸','✨'][i%5];
+    h.style.left=Math.random()*100+'%';
+    h.style.animationDelay=Math.random()*3+'s';
+    h.style.fontSize=(20+Math.random()*25)+'px';
+    document.body.appendChild(h);
+  }
+}
+</script>
+</body>
+  </html>
