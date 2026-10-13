@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6b9d">
+  <title>Aarya, a little question for you 💖</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:22px; overflow:hidden;
+      font-family:system-ui,-apple-system,Segoe UI,sans-serif; color:#7b2346;
+      background:radial-gradient(circle at top,#fff8fb 0,#ffe0ec 48%,#ffc4dc 100%); }
+    .hearts { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
+    .heart { position:absolute; bottom:-50px; opacity:.6; animation:float 9s linear infinite; }
+    .heart:nth-child(1){left:8%;font-size:22px;animation-delay:0s}
+    .heart:nth-child(2){left:23%;font-size:30px;animation-delay:3s}
+    .heart:nth-child(3){left:71%;font-size:25px;animation-delay:1s}
+    .heart:nth-child(4){left:88%;font-size:34px;animation-delay:4s}
+    @keyframes float { from{transform:translateY(0) rotate(0)} to{transform:translateY(-115vh) rotate(28deg)} }
+    .card { position:relative; width:min(100%,440px); text-align:center; padding:34px 25px;
+      background:rgba(255,255,255,.86); border:1px solid rgba(255,255,255,.9); border-radius:28px;
+      box-shadow:0 18px 55px rgba(173,48,100,.18); backdrop-filter:blur(8px); }
+    .emoji{font-size:52px;margin-bottom:8px}
+    h1{margin:8px 0 14px;font-size:clamp(27px,7vw,36px);line-height:1.15;color:#d63372}
+    p{line-height:1.65;font-size:17px;margin:10px 0}
+    .sub{color:#a14a6c;font-size:14px;margin-top:22px}
+    button{margin-top:22px;border:0;border-radius:999px;padding:15px 38px;font-size:19px;font-weight:800;
+      color:white;cursor:pointer;background:linear-gradient(135deg,#ff4f91,#e91e63);
+      box-shadow:0 9px 22px rgba(233,30,99,.3);transition:transform .15s ease}
+    button:hover{transform:translateY(-2px) scale(1.03)}
+    button:focus-visible{outline:3px solid #8a1744;outline-offset:4px}
+    #answer{display:none}
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"><span class="heart">💗</span><span class="heart">💕</span><span class="heart">💖</span><span class="heart">💘</span></div>
+  <main class="card">
+    <section id="question">
+      <div class="emoji">🥹💗</div>
+      <p><strong>Dear Aarya, ❤️</strong></p>
+      <h1>Will You Be My Girlfriend?</h1>
+      <p>I've been wanting to tell you something special…</p>
+      <p>You make ordinary moments feel magical, and I’d love to make more beautiful memories with you. 💕</p>
+      <p><strong>So, Aarya… will you be mine? 🌷</strong></p>
+      <button type="button" id="yesBtn">YES 💖</button>
+      <div class="sub">A little question, from the heart ♥</div>
+    </section>
+    <section id="answer" aria-live="polite">
+      <div class="emoji">🥰💐</div>
+      <h1>Yay, Aarya! You Made My Day! 💖</h1>
+      <p>My heart is smiling right now. 🥹❤️</p>
+      <p>Here’s to sweet moments, silly laughs, and making lovely memories together.</p>
+      <p><strong>You’re special to me, Aarya. 💗</strong></p>
+      <div class="sub">Sending you the biggest virtual hug 🤗</div>
+    </section>
+  </main>
+  <script>
+    document.getElementById('yesBtn').addEventListener('click', function () {
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('answer').style.display = 'block';
+      document.title = 'Yay, Aarya! 💖';
+      for (let i=0;i<18;i++) {
+        const el=document.createElement('span'); el.textContent=['💖','💕','💗','✨','🌸'][i%5];
+        el.style.cssText=`position:fixed;left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${18+Math.random()*22}px;pointer-events:none;animation:pop 1.8s ease-out forwards;z-index:5`;
+        document.body.appendChild(el); setTimeout(()=>el.remove(),1900);
+      }
+    });
+    const style=document.createElement('style');
+    style.textContent='@keyframes pop{0%{transform:scale(.4) translateY(10px);opacity:0}25%{opacity:1}100%{transform:scale(1.2) translateY(-65px);opacity:0}}';
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
